@@ -1,7 +1,9 @@
 package ch.cmi.proximitychat.activity
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
+import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.fragment.app.Fragment
@@ -35,6 +37,12 @@ class MainActivity : AppCompatActivity() {
         return true
     }
 
+    //Handling Action Bar button click
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        openProfileSettings()
+        return true
+    }
+
     override fun onBackPressed() {
         if (viewPager.currentItem == 0) {
             super.onBackPressed()
@@ -47,5 +55,10 @@ class MainActivity : AppCompatActivity() {
         override fun getItemCount(): Int = 2
 
         override fun createFragment(position: Int): Fragment = if (position == 0) ChatsFragment() else DevicesFragment()
+    }
+
+    fun openProfileSettings() {
+        val intent = Intent(this, ProfileSettingsActivity::class.java)
+        startActivity(intent)
     }
 }
