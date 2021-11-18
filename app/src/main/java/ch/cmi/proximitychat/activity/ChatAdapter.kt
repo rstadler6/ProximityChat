@@ -10,7 +10,7 @@ import ch.cmi.proximitychat.model.Chat
 import java.time.format.DateTimeFormatter
 
 
-class ChatAdapter(private val dataSet: Array<Chat>) :
+class ChatAdapter(private val dataSet: ArrayList<Chat>) :
     RecyclerView.Adapter<ChatAdapter.ViewHolder>() {
 
     /**
