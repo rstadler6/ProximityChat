@@ -10,7 +10,7 @@ import ch.cmi.proximitychat.model.Device
 import java.time.format.DateTimeFormatter
 
 
-class DeviceAdapter(private val dataSet: Array<Device>) :
+class DeviceAdapter(private val dataSet: ArrayList<Device>) :
         RecyclerView.Adapter<DeviceAdapter.ViewHolder>() {
 
     /**
@@ -19,7 +19,7 @@ class DeviceAdapter(private val dataSet: Array<Device>) :
      */
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val deviceName: TextView = view.findViewById(R.id.deviceName)
-        val macAddress: TextView = view.findViewById(R.id.lastMessage)
+        val macAddress: TextView = view.findViewById(R.id.macAddress)
 
         init {
             // Define click listener for the ViewHolder's View.
@@ -30,7 +30,7 @@ class DeviceAdapter(private val dataSet: Array<Device>) :
     override fun onCreateViewHolder(viewGroup: ViewGroup, viewType: Int): ViewHolder {
         // Create a new view, which defines the UI of the list item
         val view = LayoutInflater.from(viewGroup.context)
-                .inflate(R.layout.chat_row_item, viewGroup, false)
+                .inflate(R.layout.device_row_item, viewGroup, false)
 
         return ViewHolder(view)
     }

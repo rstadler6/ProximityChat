@@ -11,29 +11,12 @@ import ch.cmi.proximitychat.model.Chat
 import ch.cmi.proximitychat.model.Message
 import ch.cmi.proximitychat.model.User
 import java.time.LocalDate
-import java.util.*
 import kotlin.collections.ArrayList
 
-
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [ChatsFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class ChatsFragment : Fragment() {
     // placeholder data
     val chats = ArrayList<Chat>()
     val user = User("123", "User1")
-
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
 
     override fun onCreateView(
             inflater: LayoutInflater, container: ViewGroup?,

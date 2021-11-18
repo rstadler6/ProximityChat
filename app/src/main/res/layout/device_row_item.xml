@@ -2,37 +2,39 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_marginHorizontal="5dp"
+    android:layout_marginHorizontal="10dp"
     android:layout_marginVertical="5dp"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="52dp"
+        android:layout_height="wrap_content"
         android:orientation="vertical">
 
         <TextView
             android:id="@+id/deviceName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="2dp"
             android:textColor="@color/white"
             android:text="Galaxy S8" />
 
         <TextView
             android:id="@+id/macAddress"
             android:layout_width="match_parent"
-            android:layout_height="71dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="2dp"
             android:layout_weight="1"
-            android:textSize="12dp"
+            android:textSize="12sp"
             android:text="01:23:45:67:89:AB" />
     </LinearLayout>
 
     <View
-        android:id="@+id/divider"
         android:layout_width="match_parent"
         android:layout_height="0.5dp"
+        android:layout_marginTop="5dp"
         android:layout_gravity="bottom|end"
-        android:background="@color/white" />
+        android:background="#BDBDBD" />
 
 </FrameLayout>
