@@ -57,7 +57,7 @@ class MainActivity : AppCompatActivity() {
         override fun createFragment(position: Int): Fragment = if (position == 0) ChatsFragment() else DevicesFragment()
     }
 
-    fun openProfileSettings() {
+    private fun openProfileSettings() {
         val intent = Intent(this, ProfileSettingsActivity::class.java)
         startActivity(intent)
     }

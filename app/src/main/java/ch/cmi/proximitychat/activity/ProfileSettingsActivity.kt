@@ -14,4 +14,12 @@ class ProfileSettingsActivity : AppCompatActivity() {
     fun back (view: View?) {
         finish()
     }
+
+    fun changePicture(view: View?) {
+
+    }
+
+    fun changeUsername(view: View?) {
+
+    }
 }
