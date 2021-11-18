@@ -1,11 +1,12 @@
 package ch.cmi.proximitychat.model
 
+import android.net.wifi.p2p.WifiP2pDevice
 import androidx.databinding.ObservableList
 
-class DeviceList(c: MutableCollection<out Device>) : ArrayList<Device>(c) {
+class DeviceList(c: MutableCollection<out WifiP2pDevice> = ArrayList()) : ArrayList<WifiP2pDevice>(c) {
     private val callbacks = ArrayList<() -> Unit>()
 
-    override fun add(element: Device): Boolean {
+    override fun add(element: WifiP2pDevice): Boolean {
         val result = super.add(element)
 
         if (!result)
@@ -18,7 +19,7 @@ class DeviceList(c: MutableCollection<out Device>) : ArrayList<Device>(c) {
         return result
     }
 
-    override fun remove(element: Device): Boolean {
+    override fun remove(element: WifiP2pDevice): Boolean {
         val result = super.remove(element)
 
         if (!result)
