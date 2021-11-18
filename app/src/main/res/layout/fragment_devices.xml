@@ -6,10 +6,22 @@
     android:layout_height="match_parent"
     tools:context=".activity.DevicesFragment">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/devicesRecycler"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:layoutManager="LinearLayoutManager" />
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/debug"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:text="Debug Text" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/devicesRecycler"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layoutManager="LinearLayoutManager" />
+    </LinearLayout>
 
 </FrameLayout>
