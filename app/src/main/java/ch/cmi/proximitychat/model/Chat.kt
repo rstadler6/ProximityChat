@@ -2,7 +2,7 @@ package ch.cmi.proximitychat.model
 
 import android.graphics.Bitmap
 
-class Chat {
+class Chat(user: User) {
     lateinit var user: User
-    lateinit var messages: ArrayList<Message>
+    val messages: ArrayList<Message> = ArrayList()
 }

@@ -2,8 +2,8 @@ package ch.cmi.proximitychat.model
 
 import android.graphics.Bitmap
 
-class User {
+class User(macAddress: String, username: String) {
     lateinit var macAddress: String
     lateinit var username: String
-    lateinit var icon: Bitmap
+    var icon: Bitmap? = null
 }
