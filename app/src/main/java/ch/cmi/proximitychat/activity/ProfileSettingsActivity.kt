@@ -1,11 +1,12 @@
-package ch.cmi.proximitychat
+package ch.cmi.proximitychat.activity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import ch.cmi.proximitychat.R
 
-class ImageActivity : AppCompatActivity() {
+class ProfileSettingsActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_image)
+        setContentView(R.layout.activity_profile_settings)
     }
 }
