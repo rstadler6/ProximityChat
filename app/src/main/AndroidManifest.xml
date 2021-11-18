@@ -7,24 +7,41 @@
     <uses-permission android:name="android.permission.BLUETOOTH_SCAN" />
     <uses-permission android:name="android.permission.BLUETOOTH_ADVERTISE" />
     <uses-permission android:name="android.permission.BLUETOOTH_CONNECT" />
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission
+        android:name="android.permission.ACCESS_COARSE_LOCATION"
+        android:required="true" />
+    <uses-permission
+        android:name="android.permission.ACCESS_FINE_LOCATION"
+        android:required="true" />
+    <uses-permission
+        android:name="android.permission.ACCESS_WIFI_STATE"
+        android:required="true" />
+    <uses-permission
+        android:name="android.permission.CHANGE_WIFI_STATE"
+        android:required="true" />
+    <uses-permission
+        android:name="android.permission.INTERNET"
+        android:required="true" />
 
     <uses-feature
         android:name="android.hardware.bluetooth"
         android:required="true" />
 
     <application
-        android:testOnly="false"
-        android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
+        android:testOnly="false"
         android:theme="@style/Theme.AppCompat.NoActionBar">
+        <service
+            android:name=".service.WifiP2pScannerService"
+            android:enabled="true"
+            android:exported="true"></service>
         <service
             android:name=".service.BluetoothChatService"
             android:enabled="true"
-            android:exported="true"></service>
+            android:exported="true" />
         <service
             android:name=".service.BluetoothScannerService"
             android:enabled="true"
@@ -33,7 +50,9 @@
         <activity android:name=".activity.ImageActivity" />
         <activity android:name=".activity.ChatActivity" />
         <activity android:name=".activity.ProfileSettingsActivity" />
-        <activity android:name=".activity.MainActivity">
+        <activity
+            android:name=".activity.MainActivity"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
