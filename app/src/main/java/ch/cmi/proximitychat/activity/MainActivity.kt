@@ -47,7 +47,7 @@ class MainActivity : AppCompatActivity() {
         db = Room.databaseBuilder(
             this,
             AppDatabase::class.java, "proximitychat"
-        ).createFromAsset("database/proximitychat.db").allowMainThreadQueries().build()
+        )/*.createFromAsset("database/proximitychat")*/.allowMainThreadQueries().build()
 
         viewPager = findViewById(R.id.pager)
         viewPager.adapter = PagerAdapter(this)

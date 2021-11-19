@@ -39,6 +39,9 @@ class ProfileSettingsActivity : AppCompatActivity() {
         username = findViewById(R.id.username)
         localUser = db!!.userDao().findByMacAddress("local")
 
+        if (localUser == null)
+            localUser = User("local", "localUser", null)
+
         if (localUser.icon != null) {
             currentIcon = BitmapFactory.decodeByteArray(localUser.icon, 0, localUser.icon!!.size)
             icon.setImageBitmap(currentIcon)
