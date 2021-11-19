@@ -14,56 +14,65 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="85dp"
+            android:layout_height="0dp"
+            android:layout_weight="0.1"
+            android:background="#202225"
             android:orientation="horizontal">
 
             <Button
                 android:id="@+id/backButton"
-                android:layout_width="32dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
+                android:layout_gravity="center"
                 android:onClick="back"
                 android:text="Back" />
 
             <TextView
-                android:id="@+id/textView4"
+                android:id="@+id/username"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
+                android:layout_gravity="center"
+                android:layout_marginStart="5dp"
+                android:textSize="16sp"
                 android:text="Username" />
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="179dp"
+            android:layout_height="0dp"
+            android:layout_weight="0.8"
             android:orientation="horizontal">
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/messagesRecycler"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" />
+                android:layout_height="match_parent"
+                app:layoutManager="LinearLayoutManager"  />
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="355dp"
+            android:layout_height="0dp"
+            android:layout_weight="0.1"
+            android:layout_marginBottom="2dp"
             android:orientation="horizontal">
 
             <Button
                 android:id="@+id/button4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
+                android:layout_gravity="bottom"
                 android:text="Picture" />
 
             <EditText
-                android:id="@+id/editTextTextMultiLine"
+                android:id="@+id/messageText"
                 android:hint="Message..."
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:ems="10"
                 android:gravity="start|top"
+                android:layout_gravity="bottom"
                 android:inputType="textMultiLine" />
 
             <Button
@@ -71,6 +80,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:onClick="sendMessage"
+                android:layout_gravity="bottom"
                 android:text="Send" />
         </LinearLayout>
     </LinearLayout>
