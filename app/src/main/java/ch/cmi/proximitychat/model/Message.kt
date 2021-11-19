@@ -8,9 +8,10 @@ import java.time.LocalDate
 
 @Entity
 data class Message(
-    @PrimaryKey val id: Int,
-    @ColumnInfo(name = "chatId") val chatId: Int,
+    @ColumnInfo(name = "chatAddress") val chatAddress: String,
     @ColumnInfo(name = "userAddress") val userAddress: String,
     @ColumnInfo(name = "content") val content: String,
-    @ColumnInfo(name = "timestamp") val timestamp: LocalDate
-)
+    @ColumnInfo(name = "timestamp") val timestamp: String
+) {
+    @PrimaryKey var id: Int? = null
+}

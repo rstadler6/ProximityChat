@@ -11,6 +11,9 @@ interface MessageDao {
     @Query("SELECT * FROM message")
     fun getAll(): List<Message>
 
+    @Query("SELECT * FROM message WHERE chatAddress LIKE :chatAddress")
+    fun findByChatId(chatAddress: String): List<Message>
+
     @Insert
     fun insertAll(vararg chars: Message)
 

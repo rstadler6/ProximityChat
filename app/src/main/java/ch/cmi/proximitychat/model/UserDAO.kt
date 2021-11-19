@@ -1,9 +1,6 @@
 package ch.cmi.proximitychat.model
 
-import androidx.room.Dao
-import androidx.room.Delete
-import androidx.room.Insert
-import androidx.room.Query
+import androidx.room.*
 import ch.cmi.proximitychat.model.User
 
 @Dao
@@ -16,6 +13,9 @@ interface UserDao {
 
     @Insert
     fun insertAll(vararg chars: User)
+
+    @Update
+    fun updateAll(vararg chars: User)
 
     @Delete
     fun delete(user: User)

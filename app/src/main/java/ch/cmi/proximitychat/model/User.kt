@@ -9,5 +9,5 @@ import androidx.room.PrimaryKey
 data class User(
     @PrimaryKey val macAddress: String,
     @ColumnInfo(name = "username") var username: String,
-    @ColumnInfo(name = "icon") val icon: Bitmap?
+    @ColumnInfo(name = "icon") var icon: ByteArray?
 )

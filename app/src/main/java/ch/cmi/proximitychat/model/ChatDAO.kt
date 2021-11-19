@@ -10,8 +10,8 @@ interface ChatDao {
     @Query("SELECT * FROM chat")
     fun getAll(): List<Chat>
 
-    @Query("SELECT * FROM chat WHERE macAddress LIKE :mac LIMIT 1")
-    fun findByUser(macAddress: String): Chat
+    @Query("SELECT * FROM chat WHERE chatAddress LIKE :macAddress LIMIT 1")
+    fun findByMacAddress(macAddress: String): Chat
 
     @Insert
     fun insertAll(vararg chars: Chat)

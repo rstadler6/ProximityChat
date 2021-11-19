@@ -35,9 +35,12 @@
         android:testOnly="false"
         android:theme="@style/Theme.AppCompat.NoActionBar">
         <service
+            android:name=".service.WifiP2pChatService"
+            android:exported="false"></service>
+        <service
             android:name=".service.WifiP2pScannerService"
             android:enabled="true"
-            android:exported="true"></service>
+            android:exported="true" />
         <service
             android:name=".service.BluetoothChatService"
             android:enabled="true"
