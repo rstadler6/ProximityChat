@@ -14,23 +14,24 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import ch.cmi.proximitychat.R
+import ch.cmi.proximitychat.model.Chat
 import ch.cmi.proximitychat.model.Device
-import ch.cmi.proximitychat.service.BluetoothScannerService
+import ch.cmi.proximitychat.service.WifiP2pScannerService
 
 class DevicesFragment : Fragment() {
     // placeholder data
     val devices = ArrayList<Device>()
     var count = 1
 
-    private lateinit var scannerService: BluetoothScannerService
+    private lateinit var scannerService: WifiP2pScannerService
     private var bound: Boolean = false
 
     private val connection = object : ServiceConnection {
 
         override fun onServiceConnected(className: ComponentName, service: IBinder) {
-            val binder = service as BluetoothScannerService.ScannerBinder
+            val binder = service as WifiP2pScannerService.ScannerBinder
             scannerService = binder.getService()
-            scannerService.startScan(::onDevicesChanged)
+            scannerService.startDiscovery(::onDevicesChanged)
             bound = true
         }
 
@@ -41,7 +42,7 @@ class DevicesFragment : Fragment() {
 
     override fun onStart() {
         super.onStart()
-        Intent(activity, BluetoothScannerService::class.java).also { intent ->
+        Intent(activity, WifiP2pScannerService::class.java).also { intent ->
             activity!!.bindService(intent, connection, Context.BIND_AUTO_CREATE)
         }
     }
@@ -72,6 +73,10 @@ class DevicesFragment : Fragment() {
 
     fun onDevicesChanged() {
         view!!.findViewById<TextView>(R.id.debug).text = "device found: " + count++
-        view!!.findViewById<RecyclerView>(R.id.devicesRecycler).adapter = DeviceAdapter(devices)
+        view!!.findViewById<RecyclerView>(R.id.devicesRecycler).adapter = DeviceAdapter(devices, ::onDeviceClick)
+    }
+
+    private fun onDeviceClick(device: Device) {
+        // TODO
     }
 }

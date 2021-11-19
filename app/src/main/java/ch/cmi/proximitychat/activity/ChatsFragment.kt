@@ -1,5 +1,6 @@
 package ch.cmi.proximitychat.activity
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -27,12 +28,20 @@ class ChatsFragment : Fragment() {
 
         // placeholder data
         val chat = Chat(user)
-        val message = Message(user, LocalDate.now(), "hello")
+        val message = Message(user,"hello", LocalDate.now())
         chat.messages.add(message)
         chats.add(chat)
 
-        view.findViewById<RecyclerView>(R.id.chatsRecycler).adapter = ChatAdapter(chats)
+        view.findViewById<RecyclerView>(R.id.chatsRecycler).adapter = ChatAdapter(chats, ::onChatClick)
 
         return view
+    }
+
+    private fun onChatClick(chat: Chat) {
+        val bundle = Bundle()
+        bundle.putString("userMac", chat.user.macAddress)
+
+        val intent = Intent(activity, ChatActivity::class.java).putExtras(bundle)
+        startActivity(intent)
     }
 }
