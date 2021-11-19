@@ -1,0 +1,206 @@
+Repo link:
+https://github.com/rstadler6/ProximityChat
+
+commit f010d6e9f912fd411d0dc06e5d48e90a8f857d9d
+Author: Raphael Stadler <54070175+rstadler6@users.noreply.github.com>
+Date:   Fri Nov 19 15:46:47 2021 +0100
+
+    Initial Db
+
+commit 149a2f0c3249ae6e6a8cd8d933e0f3dc935cc96b
+Author: Raphael Stadler <54070175+rstadler6@users.noreply.github.com>
+Date:   Fri Nov 19 15:46:41 2021 +0100
+
+    Profile Settings save Icon/Username
+
+commit 21dd12f17a26995b0b3b658ce5940004504fbdeb
+Author: Raphael Stadler <54070175+rstadler6@users.noreply.github.com>
+Date:   Fri Nov 19 15:46:24 2021 +0100
+
+    placeholder data replaced with db data
+
+commit 07f9dd15d2c03c13e353b6a4e3a9e3e65cb0ab8a
+Author: Raphael Stadler <54070175+rstadler6@users.noreply.github.com>
+Date:   Fri Nov 19 15:43:42 2021 +0100
+
+    WifiP2p Services
+
+commit 437cb179c271d0988b30c60b4ee8d2e78bdc0137
+Author: Raphael Stadler <54070175+rstadler6@users.noreply.github.com>
+Date:   Fri Nov 19 15:43:20 2021 +0100
+
+    layout
+
+commit f9b5088202255490406867b7a17fbc7ccf9389cd
+Author: Raphael Stadler <54070175+rstadler6@users.noreply.github.com>
+Date:   Fri Nov 19 15:43:03 2021 +0100
+
+    Room db
+
+commit a5ea42db31ee121f1b19dcf018eda3d0a56ad704
+Author: Raphael Stadler <54070175+rstadler6@users.noreply.github.com>
+Date:   Fri Nov 19 11:17:26 2021 +0100
+
+    Model Classes Room support added
+
+commit 57c8a1c28ff89b317a998d52016d0e21860d457a
+Author: Raphael Stadler <54070175+rstadler6@users.noreply.github.com>
+Date:   Fri Nov 19 09:46:27 2021 +0100
+
+    Permissions
+
+commit 1c88590b7d765a41afcf615ccaa147a8fdc1058b
+Author: Raphael Stadler <54070175+rstadler6@users.noreply.github.com>
+Date:   Fri Nov 19 09:45:42 2021 +0100
+
+    Chat/Device onClick
+
+commit 9b4f5b49dc3f7218a35fa5401eb0b51d9bf2101d
+Author: rstadler6 <54070175+rstadler6@users.noreply.github.com>
+Date:   Thu Nov 18 23:38:07 2021 +0100
+
+    Chat placeholder data
+
+commit 26c9f7394961fbf91518a7d86a45efbf3e51d2d0
+Author: rstadler6 <54070175+rstadler6@users.noreply.github.com>
+Date:   Thu Nov 18 23:30:40 2021 +0100
+
+    WifiP2pScannerService added
+
+commit 1eedae71b6128b5e6d4ee17f5e7ddcdfe38b7e39
+Author: rstadler6 <54070175+rstadler6@users.noreply.github.com>
+Date:   Thu Nov 18 23:30:20 2021 +0100
+
+    Profile Settings layout
+
+commit e878ea8a65dafffd57b474d8c3ea63dbcb1dfcea
+Author: rstadler6 <54070175+rstadler6@users.noreply.github.com>
+Date:   Thu Nov 18 23:29:53 2021 +0100
+
+    Chat layout
+
+commit 2d04195f52eaa586152b903ec1bdcbddaac63d00
+Author: rstadler6 <54070175+rstadler6@users.noreply.github.com>
+Date:   Thu Nov 18 23:29:12 2021 +0100
+
+    Manifest updated
+
+commit 8df97f2e34845d02a39b1fb7f529324628bfc231
+Author: Raphael Stadler <54070175+rstadler6@users.noreply.github.com>
+Date:   Thu Nov 18 16:41:49 2021 +0100
+
+    DeviceList
+
+commit dffa51ef7ce03dcf443adef96b6b386b84b0b62c
+Author: Raphael Stadler <54070175+rstadler6@users.noreply.github.com>
+Date:   Thu Nov 18 16:41:38 2021 +0100
+
+    layout
+
+commit d8714854f3912a6b0759199629129b5cbb484b9d
+Author: Raphael Stadler <54070175+rstadler6@users.noreply.github.com>
+Date:   Thu Nov 18 16:41:22 2021 +0100
+
+    Services added
+
+commit 326c4b05362b6622bebd96bf6b690999916e9380
+Author: Raphael Stadler <54070175+rstadler6@users.noreply.github.com>
+Date:   Thu Nov 18 16:40:58 2021 +0100
+
+    Manifest
+
+commit df5cacf6ae3ad97c1c9231a538b9160de377bfb0
+Author: Raphael Stadler <54070175+rstadler6@users.noreply.github.com>
+Date:   Thu Nov 18 14:48:40 2021 +0100
+
+    Chat Layout
+
+commit 1493248765e480c34a0072526aa36eec3fd9e558
+Author: Raphael Stadler <54070175+rstadler6@users.noreply.github.com>
+Date:   Thu Nov 18 14:47:34 2021 +0100
+
+    Profile Settings Layout
+
+commit 7b2fdcf8ed036cc32482a33d7d7a9d95ad98ea3a
+Author: Raphael Stadler <54070175+rstadler6@users.noreply.github.com>
+Date:   Thu Nov 18 14:34:53 2021 +0100
+
+    Profile Settings button
+
+commit fa5bebaf408f95e8aa4ba973f64e0153f525b2b5
+Author: Raphael Stadler <54070175+rstadler6@users.noreply.github.com>
+Date:   Thu Nov 18 14:34:37 2021 +0100
+
+    Devices Layout
+
+commit f5e2487a5e8aff1f224b206a587ba497ebd52e14
+Author: Raphael Stadler <54070175+rstadler6@users.noreply.github.com>
+Date:   Thu Nov 18 14:09:52 2021 +0100
+
+    Chats layout
+
+commit 2670f87c09ce690c005bc38494f62a30385a67af
+Author: Raphael Stadler <54070175+rstadler6@users.noreply.github.com>
+Date:   Thu Nov 18 13:55:10 2021 +0100
+
+    properties moved to constructor
+
+commit 16cf9e7278cb36c637c73f140cb5ae5b284c2708
+Author: Raphael Stadler <54070175+rstadler6@users.noreply.github.com>
+Date:   Thu Nov 18 13:48:50 2021 +0100
+
+    Model Classes Constructors added
+
+commit 6afa54a68887243ee9e01dae687af30d494c6a5e
+Author: Raphael Stadler <54070175+rstadler6@users.noreply.github.com>
+Date:   Thu Nov 18 11:43:21 2021 +0100
+
+    Chat/Device adapter
+
+commit 2c178347a4e174389db4a93b784ea6e58090b161
+Author: Raphael Stadler <54070175+rstadler6@users.noreply.github.com>
+Date:   Thu Nov 18 11:42:09 2021 +0100
+
+    device row item layout
+
+commit b1c39b04d7168b8f65a5e5dbefe97972c920e083
+Author: Raphael Stadler <54070175+rstadler6@users.noreply.github.com>
+Date:   Thu Nov 18 11:40:11 2021 +0100
+
+    Device Class added
+
+commit a58108d54f9db12474a05feb42f2808738dac2b7
+Author: Raphael Stadler <54070175+rstadler6@users.noreply.github.com>
+Date:   Thu Nov 18 11:26:26 2021 +0100
+
+    Model Classes added
+
+commit 9095601df58cc7f428949b0fbaca4601fcb599d9
+Author: Raphael Stadler <54070175+rstadler6@users.noreply.github.com>
+Date:   Thu Nov 18 11:15:39 2021 +0100
+
+    activity package added
+
+commit 0e56d22552939a1b162422c16c699afb36853ccd
+Author: Raphael Stadler <54070175+rstadler6@users.noreply.github.com>
+Date:   Thu Nov 18 11:08:59 2021 +0100
+
+    chat/device row item basic layout
+
+commit d80748b8b1f6db25cf978b8b183a845e84757c8a
+Author: Raphael Stadler <54070175+rstadler6@users.noreply.github.com>
+Date:   Thu Nov 18 10:53:29 2021 +0100
+
+    image activity basic layout
+
+commit e2b3050ef28b5091348cb83d4266abff0e30b3af
+Author: Raphael Stadler <54070175+rstadler6@users.noreply.github.com>
+Date:   Thu Nov 18 10:50:10 2021 +0100
+
+    profile settings basic layout
+
+commit 06643e31ab2e788b4c0b6f51b837f157e5fabf52
+Author: Raphael Stadler <54070175+rstadler6@users.noreply.github.com>
+Date:   Thu Nov 18 09:55:05 2021 +0100
+
+    Initial commit
