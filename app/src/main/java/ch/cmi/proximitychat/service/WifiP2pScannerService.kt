@@ -1,13 +1,20 @@
 package ch.cmi.proximitychat.service
 
+import android.annotation.SuppressLint
 import android.app.Service
 import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
 import android.content.IntentFilter
+import android.net.wifi.WpsInfo
+import android.net.wifi.p2p.WifiP2pConfig
+import android.net.wifi.p2p.WifiP2pDevice
 import android.net.wifi.p2p.WifiP2pManager
 import android.os.Binder
 import android.os.IBinder
+import android.util.Log
+import android.widget.Toast
+import ch.cmi.proximitychat.model.Device
 import ch.cmi.proximitychat.model.DeviceList
 
 class WifiP2pScannerService : Service() {
@@ -40,6 +47,10 @@ class WifiP2pScannerService : Service() {
             when(intent.action) {
                 WifiP2pManager.WIFI_P2P_STATE_CHANGED_ACTION -> {
                     val state = intent.getIntExtra(WifiP2pManager.EXTRA_WIFI_STATE, -1)
+                    if (state == WifiP2pManager.WIFI_P2P_STATE_ENABLED)
+                        Log.i("ProximityChat", "WifiP2p enabled")
+                    else
+                        Log.e("ProximityChat", "WifiP2p disabled")
                 }
                 WifiP2pManager.WIFI_P2P_PEERS_CHANGED_ACTION -> {
                     try {
@@ -64,8 +75,12 @@ class WifiP2pScannerService : Service() {
         intentFilter.addAction(WifiP2pManager.WIFI_P2P_CONNECTION_CHANGED_ACTION)
         // Indicates this device's details have changed.
         intentFilter.addAction(WifiP2pManager.WIFI_P2P_THIS_DEVICE_CHANGED_ACTION)
+
+        manager = getSystemService(Context.WIFI_P2P_SERVICE) as WifiP2pManager
+        channel = manager.initialize(this, mainLooper, null)
     }
 
+    @SuppressLint("MissingPermission")
     override fun onBind(intent: Intent): IBinder {
         return binder
     }
@@ -80,9 +95,48 @@ class WifiP2pScannerService : Service() {
     }
 
     fun startDiscovery(callback: () -> Unit) {
-        // TODO check if WifiP2p enabled
-
         devices.addOnListChangedCallback(callback)
         registerReceiver(receiver, intentFilter)
+
+        try {
+            manager.discoverPeers(channel, object : WifiP2pManager.ActionListener {
+
+                override fun onSuccess() {
+                    Log.i("ProximityChat", "Discovery initiated")
+                }
+
+                override fun onFailure(reasonCode: Int) {
+                    Log.e("ProximityChat", "Discovery initiation failed")
+                }
+            })
+
+        }
+        catch (e: SecurityException) {
+            // not enough permissions, TODO
+        }
     }
+
+    fun connectDevice(device: Device) {
+        val config = WifiP2pConfig().apply {
+            deviceAddress = device.macAddress
+            wps.setup = WpsInfo.PBC
+        }
+
+        try {
+            manager.connect(channel, config, object : WifiP2pManager.ActionListener {
+
+                override fun onSuccess() {
+                    // connection successful
+                }
+
+                override fun onFailure(reason: Int) {
+                    // connection failed
+                }
+            })
+        }
+        catch (e: SecurityException) {
+            // not enough permissions, TODO
+        }
+    }
+
 }

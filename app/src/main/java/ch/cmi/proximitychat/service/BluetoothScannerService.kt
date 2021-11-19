@@ -24,7 +24,7 @@ class BluetoothScannerService : Service() {
                 BluetoothDevice.ACTION_FOUND -> {
                     val device: BluetoothDevice =
                         intent.getParcelableExtra(BluetoothDevice.EXTRA_DEVICE)!!
-                    devices.add(Device(device.name, device.address))
+                    //devices.add(Device(device.name, device.address))
                 }
             }
         }
