@@ -1,5 +1,13 @@
 package ch.cmi.proximitychat.model
 
-class Chat(val user: User) {
-    val messages: ArrayList<Message> = ArrayList()
-}
+import androidx.room.ColumnInfo
+import androidx.room.Entity
+import androidx.room.PrimaryKey
+import java.time.LocalDate
+
+@Entity
+data class Chat(
+    @PrimaryKey val id: Int,
+    @ColumnInfo(name = "userAddress") val userAddress: String,
+    @ColumnInfo(name = "timestamp") val timestamp: LocalDate
+)

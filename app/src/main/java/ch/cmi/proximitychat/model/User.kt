@@ -1,7 +1,13 @@
 package ch.cmi.proximitychat.model
 
 import android.graphics.Bitmap
+import androidx.room.ColumnInfo
+import androidx.room.Entity
+import androidx.room.PrimaryKey
 
-class User(val macAddress: String, var username: String) {
-    var icon: Bitmap? = null
-}
+@Entity
+data class User(
+    @PrimaryKey val macAddress: String,
+    @ColumnInfo(name = "username") var username: String,
+    @ColumnInfo(name = "icon") val icon: Bitmap?
+)
