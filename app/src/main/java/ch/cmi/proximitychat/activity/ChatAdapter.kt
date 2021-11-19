@@ -11,7 +11,7 @@ import ch.cmi.proximitychat.model.Chat
 import java.time.format.DateTimeFormatter
 
 
-class ChatAdapter(private val dataSet: ArrayList<Chat>, private val onClick: (Chat) -> Unit) :
+class ChatAdapter(private val dataSet: List<Chat>, private val onClick: (Chat) -> Unit) :
     RecyclerView.Adapter<ChatAdapter.ViewHolder>() {
 
     class ViewHolder(view: View, private val onClick: (Chat) -> Unit) : RecyclerView.ViewHolder(view) {
@@ -37,12 +37,16 @@ class ChatAdapter(private val dataSet: ArrayList<Chat>, private val onClick: (Ch
     }
 
     override fun onBindViewHolder(viewHolder: ViewHolder, position: Int) {
-        viewHolder.currentChat = dataSet[position]
-        viewHolder.username.text = dataSet[position].user.username
-        viewHolder.lastMessage.text = dataSet[position].messages.last().content
-        viewHolder.lastMessageTime.text = dataSet[position].messages.last().timestamp.format(
+        val chat = dataSet[position]
+        val user = db!!.userDao().findByMacAddress(chat.chatAddress)
+        val messages = db!!.messageDao().findByChatId(chat.chatAddress)
+
+        viewHolder.currentChat = chat
+        viewHolder.username.text = user.username
+        viewHolder.lastMessage.text = if (messages.count() > 0) messages.last().content else "No messages"
+        viewHolder.lastMessageTime.text = if (messages.count() > 0)messages.last().timestamp.format(
             DateTimeFormatter.BASIC_ISO_DATE
-        )
+        ) else ""
     }
 
     override fun getItemCount() = dataSet.size

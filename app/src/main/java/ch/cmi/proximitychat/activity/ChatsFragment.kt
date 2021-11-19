@@ -8,17 +8,16 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
 import ch.cmi.proximitychat.R
+import ch.cmi.proximitychat.model.AppDatabase
 import ch.cmi.proximitychat.model.Chat
 import ch.cmi.proximitychat.model.Message
 import ch.cmi.proximitychat.model.User
 import java.time.LocalDate
 import kotlin.collections.ArrayList
 
-class ChatsFragment : Fragment() {
-    // placeholder data
-    val chats = ArrayList<Chat>()
-    val user = User("123", "User1")
+var currentChatAddress: String? = null
 
+class ChatsFragment : Fragment() {
     override fun onCreateView(
             inflater: LayoutInflater, container: ViewGroup?,
             savedInstanceState: Bundle?
@@ -26,20 +25,15 @@ class ChatsFragment : Fragment() {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_chats, container, false)
 
-        // placeholder data
-        val chat = Chat(user)
-        val message = Message(user,"hello", LocalDate.now())
-        chat.messages.add(message)
-        chats.add(chat)
-
-        view.findViewById<RecyclerView>(R.id.chatsRecycler).adapter = ChatAdapter(chats, ::onChatClick)
+        view.findViewById<RecyclerView>(R.id.chatsRecycler).adapter = ChatAdapter(db!!.chatDao().getAll(), ::onChatClick)
 
         return view
     }
 
     private fun onChatClick(chat: Chat) {
         val bundle = Bundle()
-        bundle.putString("userMac", chat.user.macAddress)
+        bundle.putString("chatAddress", chat.chatAddress)
+        currentChatAddress = chat.chatAddress
 
         val intent = Intent(activity, ChatActivity::class.java).putExtras(bundle)
         startActivity(intent)

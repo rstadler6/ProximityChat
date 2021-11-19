@@ -2,7 +2,6 @@ package ch.cmi.proximitychat.activity
 
 import android.Manifest
 import android.content.Intent
-import android.content.pm.PackageManager
 import android.os.Bundle
 import android.util.Log
 import android.view.Menu
@@ -11,15 +10,18 @@ import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
-import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
+import androidx.room.Room
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import androidx.viewpager2.widget.ViewPager2
 import ch.cmi.proximitychat.R
+import ch.cmi.proximitychat.model.AppDatabase
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
 import com.permissionx.guolindev.PermissionX
+
+var db: AppDatabase? = null
 
 private val PERMISSIONS = listOf(
         Manifest.permission.ACCESS_COARSE_LOCATION,
@@ -41,6 +43,11 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         setSupportActionBar(findViewById<Toolbar>(R.id.toolbar))
+
+        db = Room.databaseBuilder(
+            this,
+            AppDatabase::class.java, "proximitychat"
+        ).createFromAsset("database/proximitychat.db").allowMainThreadQueries().build()
 
         viewPager = findViewById(R.id.pager)
         viewPager.adapter = PagerAdapter(this)

@@ -5,6 +5,7 @@ import android.content.ComponentName
 import android.content.Context
 import android.content.Intent
 import android.content.ServiceConnection
+import android.net.wifi.p2p.WifiP2pDevice
 import android.os.Bundle
 import android.os.IBinder
 import androidx.fragment.app.Fragment
@@ -21,7 +22,6 @@ import ch.cmi.proximitychat.service.WifiP2pScannerService
 class DevicesFragment : Fragment() {
     // placeholder data
     val devices = ArrayList<Device>()
-    var count = 1
 
     private lateinit var scannerService: WifiP2pScannerService
     private var bound: Boolean = false
@@ -66,17 +66,16 @@ class DevicesFragment : Fragment() {
 
         devices.add(device1)
         devices.add(device2)
-        view.findViewById<RecyclerView>(R.id.devicesRecycler).adapter = DeviceAdapter(devices)
+        view.findViewById<RecyclerView>(R.id.devicesRecycler).adapter = DeviceAdapter(devices, ::onDeviceClick)
 
         return view
     }
 
     fun onDevicesChanged() {
-        view!!.findViewById<TextView>(R.id.debug).text = "device found: " + count++
         view!!.findViewById<RecyclerView>(R.id.devicesRecycler).adapter = DeviceAdapter(devices, ::onDeviceClick)
     }
 
     private fun onDeviceClick(device: Device) {
-        // TODO
+        scannerService.connectDevice(device)
     }
 }

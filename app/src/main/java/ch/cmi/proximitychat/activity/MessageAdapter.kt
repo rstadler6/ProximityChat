@@ -12,7 +12,7 @@ import java.time.format.DateTimeFormatter
 private const val TYPE_MESSAGE_SENT = 0
 private const val TYPE_MESSAGE_RECEIVED = 1
 
-class MessageAdapter(private val dataSet: ArrayList<Message>) :
+class MessageAdapter(private val dataSet: List<Message>) :
         RecyclerView.Adapter<MessageAdapter.MessageHolder>() {
     // placeholder data
     val localMac = "local"
@@ -25,8 +25,6 @@ class MessageAdapter(private val dataSet: ArrayList<Message>) :
     override fun onCreateViewHolder(viewGroup: ViewGroup, viewType: Int): MessageHolder {
         val viewId = if (viewType == TYPE_MESSAGE_SENT) R.layout.sent_message_item
             else R.layout.received_message_item
-
-
         val view = LayoutInflater.from(viewGroup.context)
                 .inflate(viewId, viewGroup, false)
 
@@ -35,11 +33,11 @@ class MessageAdapter(private val dataSet: ArrayList<Message>) :
 
     override fun onBindViewHolder(viewHolder: MessageHolder, position: Int) {
         viewHolder.content.text = dataSet[position].content
-        viewHolder.timestamp.text = dataSet[position].timestamp.format(DateTimeFormatter.ISO_LOCAL_TIME)
+        viewHolder.timestamp.text = dataSet[position].timestamp.format(DateTimeFormatter.BASIC_ISO_DATE)
     }
 
     override fun getItemViewType(position: Int): Int {
-        return if (dataSet[position].user.macAddress == localMac) TYPE_MESSAGE_SENT else TYPE_MESSAGE_RECEIVED
+        return if (dataSet[position].userAddress == localMac) TYPE_MESSAGE_SENT else TYPE_MESSAGE_RECEIVED
     }
 
     override fun getItemCount() = dataSet.size
