@@ -21,7 +21,7 @@ class ProfileSettingsActivity : AppCompatActivity() {
     lateinit var currentUsername: String
     private lateinit var icon: ImageView
     private lateinit var username: TextView
-    private lateinit var localUser: User
+    private var localUser: User? = null
     //private lateinit var prefs = getPreferences(Context.MODE_PRIVATE) TODO move to onCreate
 
     private val resultLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
@@ -42,12 +42,12 @@ class ProfileSettingsActivity : AppCompatActivity() {
         if (localUser == null)
             localUser = User("local", "localUser", null)
 
-        if (localUser.icon != null) {
-            currentIcon = BitmapFactory.decodeByteArray(localUser.icon, 0, localUser.icon!!.size)
+        if (localUser!!.icon != null) {
+            currentIcon = BitmapFactory.decodeByteArray(localUser!!.icon, 0, localUser!!.icon!!.size)
             icon.setImageBitmap(currentIcon)
         }
 
-        currentUsername = localUser.username
+        currentUsername = localUser!!.username
         username.text = currentUsername
     }
 
@@ -56,11 +56,11 @@ class ProfileSettingsActivity : AppCompatActivity() {
 
         val stream = ByteArrayOutputStream()
         currentIcon.compress(Bitmap.CompressFormat.PNG, 90, stream)
-        localUser.icon = stream.toByteArray()
+        localUser!!.icon = stream.toByteArray()
 
-        localUser.username = currentUsername
+        localUser!!.username = currentUsername
 
-        db!!.userDao().updateAll(localUser)
+        db!!.userDao().updateAll(localUser!!)
     }
 
     fun back (view: View?) {
